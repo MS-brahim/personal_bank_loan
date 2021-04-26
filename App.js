@@ -1,11 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import SignUpScreen from "./screens/SignUpScreen";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your test!</Text>
+      <SignUpScreen/>
       <StatusBar style="auto" />
     </View>
   );
