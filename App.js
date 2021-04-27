@@ -1,19 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
 import SignUpScreen from "./screens/SignUpScreen";
 import CreditCalcul from "./screens/CreditCalcul";
 
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
-
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
+
 
 function App() {
   return (
@@ -23,10 +16,10 @@ function App() {
           name="SignUpScreen"
           component={SignUpScreen}
           options={{
-            title: "Sign in",
-            headerTintColor: "white",
+            title: "Inscription",
+            headerTintColor: "#ed3b45",
             headerStyle: {
-              backgroundColor: "skyblue",
+              backgroundColor: "white",
             },
           }}
         /> */}
