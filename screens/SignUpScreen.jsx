@@ -1,25 +1,34 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TextInput, CheckBox, Image } from 'react-native';
+
 import ButtonShared from '../components/shared/ButtonShared';
  
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        maxWidth:370,
     },
     input :{
         borderRadius:30,
-        // borderColor:'light',
         borderWidth:1,
         marginTop:10,
         minWidth:360,
         minHeight:30,
         padding:10,
-        paddingLeft:15
+        paddingLeft:15,
     },
     sTitle :{
         color: "#ed3b45",
-        fontWeight:"bold"
-    }
+        fontWeight:"bold",
+        fontSize:20
+    },
+    row: {
+        flexDirection: "row",
+    },
+    colText: {
+        marginLeft:20,
+        marginTop:'auto'
+    },
 });
  
 function SignUpScreen() {
@@ -32,9 +41,9 @@ function SignUpScreen() {
 
     return (
         <ScrollView style={styles.container}>
-            <View>
+            <View style={styles.row}>
                 <Image source={require('../assets/coordonnee.jpg')} />
-                <View>
+                <View style={styles.colText}>
                     <Text style={styles.sTitle}>MES COORDONNÉES</Text>
                     <Text>Renseigner les champs ci-dessous et passer à l'étape suivante !</Text>
                 </View>
@@ -66,14 +75,20 @@ function SignUpScreen() {
             <Text>
                 Conformément à la loi 09-08, vous disposez d'un droit d'accès, de rectification et d'opposition au traitement de vos données personnelles. Ce traitement a été autorisé par la CNDP sous le n°A-M-158/2020
             </Text>
+            {/* <CheckBox
+                value={isSelected}
+                onValueChange={setSelection}
+                style={styles.checkbox}
+            />
+            <Text style={styles.label}>Do you like React Native?</Text>
             <CheckBox
                 value={isSelected}
                 onValueChange={setSelection}
                 style={styles.checkbox}
-                />
-            <Text style={styles.label}>Do you like React Native?</Text>
+            />
+            <Text style={styles.label}>J'ACCEPTE DE RECEVOIR LES OFFRES PROMOTIONNELLES D'EQDOM</Text> */}
 
-            <ButtonShared text="Simuler"/>
+            <ButtonShared text="SIMULER"/>
         </ScrollView>
     );
 }
