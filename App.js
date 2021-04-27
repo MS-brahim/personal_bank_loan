@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import SignUpScreen from "./screens/SignUpScreen";
+import CreditCalcul from "./screens/CreditCalcul";
 
 function HomeScreen() {
   return (
@@ -18,9 +19,20 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           name="SignUpScreen"
           component={SignUpScreen}
+          options={{
+            title: "Sign in",
+            headerTintColor: "white",
+            headerStyle: {
+              backgroundColor: "skyblue",
+            },
+          }}
+        /> */}
+        <Stack.Screen
+          name="Calcul"
+          component={CreditCalcul}
           options={{
             title: "Sign in",
             headerTintColor: "white",
