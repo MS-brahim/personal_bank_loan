@@ -2,7 +2,7 @@ import React from 'react'
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 const ButtonShared = (props) => {
     return (
-        <View>            
+      <View>            
           <TouchableOpacity
           style={styles.button}
           onPress={props.onPress}
@@ -22,6 +22,6 @@ const styles = StyleSheet.create({
       padding: 10,
       marginTop: 45,
       borderRadius: 30,
-      width:100,
+      width:120,
     }
-  });
+});
