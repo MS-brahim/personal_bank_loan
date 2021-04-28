@@ -5,11 +5,11 @@ import {
   StyleSheet,
   ScrollView,
   TextInput,
-  CheckBox,
   Image,
   Alert,
 } from "react-native";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { sendMail } from "../components/shared/SendMail";
 import ButtonShared from "../components/shared/ButtonShared";
 import firebase from "../firebase";
 const db = firebase.firestore();
@@ -52,8 +52,7 @@ function SignUpScreen(props) {
   const [email, onChangeEmail] = React.useState("");
   const [isSelected, setSelection] = React.useState(false);
 
-  function signUp() {
-    console.log(fname);
+  async function signUp() {
     try {
       if (db) {
         if (fname === "" || lname === "" || phone === "" || email === "") {
@@ -65,8 +64,24 @@ function SignUpScreen(props) {
             phone: phone,
             email: email,
           });
+          await AsyncStorage.setItem(
+            "client",
+            JSON.stringify({ fname, lname, phone, email })
+          );
+          (amount = 100000), (months = 15), (amortissement = 1022033.12);
+          const data = {
+            fname,
+            lname,
+            phone,
+            amount,
+            months,
+            amortissement,
+          };
+          sendMail(email, data);
 
-          props.navigation.navigate("Calcul");
+          props.navigation.navigate("Calcul", {
+            data: { fname, lname, phone, email },
+          });
         }
       }
     } catch (error) {
@@ -114,18 +129,6 @@ function SignUpScreen(props) {
         rectification et d'opposition au traitement de vos données personnelles.
         Ce traitement a été autorisé par la CNDP sous le n°A-M-158/2020
       </Text>
-      {/* <CheckBox
-                value={isSelected}
-                onValueChange={setSelection}
-                style={styles.checkbox}
-            />
-            <Text style={styles.label}>Do you like React Native?</Text> */}
-      {/* <CheckBox
-                value={isSelected}
-                onValueChange={setSelection}
-                style={styles.checkbox}
-            /> */}
-      {/* <Text style={styles.label}>J'ACCEPTE DE RECEVOIR LES OFFRES PROMOTIONNELLES D'EQDOM</Text> */}
 
       <ButtonShared
         text="SIMULER"

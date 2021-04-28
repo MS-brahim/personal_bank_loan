@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text, ScrollView } from "react-native";
 import Slider from "@react-native-community/slider";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 export default class CreditCalcul extends React.Component {
   min = 4000;
   max = 500000;
@@ -14,6 +15,8 @@ export default class CreditCalcul extends React.Component {
   colors = {
     white: "white",
   };
+
+  // data = this.props.route.params.data;
 
   state = {
     amount: this.min,
