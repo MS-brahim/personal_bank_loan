@@ -11,19 +11,6 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen
-          name="SignUpScreen"
-          component={SignUpScreen}
-          options={{
-            title: "Inscription",
-            headerTintColor: "#ed3b45",
-            headerStyle: {
-              backgroundColor: "white",
-            },
-          }}
-        /> */}
-        
-
         <Stack.Screen
           name="Calcul"
           component={CreditCalcul}
@@ -32,6 +19,23 @@ function App() {
             headerTintColor: "#ed3b45",
             headerStyle: {
               backgroundColor: "white",
+            },
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="SignUpScreen"
+          component={SignUpScreen}
+          options={{
+            title: "Inscription",
+            headerTintColor: "#ed3b45",
+            headerStyle: {
+              backgroundColor: "white",
+            },
+            headerTitleStyle: {
+              fontWeight: 'bold',
             },
           }}
         />

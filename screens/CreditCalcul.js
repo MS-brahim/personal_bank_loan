@@ -45,7 +45,7 @@ export default class CreditCalcul extends React.Component {
       {/* <ImageBackground source={require('../assets/bg.jpg')} style={{width: '100%', height: '100%'}}> */}
         <View style={styles.container}>
           <View style={styles.slider}>
-            <Text style={{ color: this.colors.white }}>{this.min}</Text>
+            <Text style={{ color: this.colors.white, fontWeight:'bold'}}>{this.min}</Text>
 
             <Slider
               style={{ width: 200, height: 40 }}
@@ -53,31 +53,29 @@ export default class CreditCalcul extends React.Component {
               maximumValue={this.max}
               minimumTrackTintColor="red"
               maximumTrackTintColor="#000000"
+              thumbTintColor='white'
               onValueChange={(amount) => {
                 this.setState({ amount });
               }}
             />
-            <Text style={{ color: this.colors.white }}> {this.max}</Text>
+            <Text style={{ color: this.colors.white, fontWeight:'bold'}}> {this.max}</Text>
           </View>
-          {/* <Text>Montant du crédit : {this.state.amount}</Text> */}
 
           <View style={styles.slider}>
-            <Text style={{ color: this.colors.white }}>{this.minMonths}</Text>
+            <Text style={{ color: this.colors.white, fontWeight:'bold'}}>{this.minMonths}</Text>
             <Slider
               style={{ width: 200, height: 40 }}
               minimumValue={this.minMonths}
               maximumValue={this.maxMonths}
               minimumTrackTintColor="red"
               maximumTrackTintColor="#000000"
+              thumbTintColor='white'
               onValueChange={(months) =>
                 this.setState({ months: Math.trunc(months) })
               }
             />
-            <Text style={{ color: this.colors.white }}> {this.maxMonths}</Text>
+            <Text style={{ color: this.colors.white, fontWeight:'bold'}}> {this.maxMonths}</Text>
           </View>
-
-          {/* <Text>Durée du crédit : {this.state.months}</Text> */}
-
           
           <Text style={{
             marginTop:30,
@@ -137,7 +135,9 @@ export default class CreditCalcul extends React.Component {
           <Text style={{width:'15%'}}>Share</Text>
           <Text style={{width:'15%'}}>Imp</Text>
         </View>
-        <ButtonShared text='DEMANDER CE PRET'/>
+        <ButtonShared text='DEMANDER CE PRET'
+          onPress={() =>this.props.navigation.navigate('SignUpScreen')}
+        />
       </ScrollView>
     );
   }
