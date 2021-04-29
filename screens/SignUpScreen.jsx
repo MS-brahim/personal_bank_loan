@@ -50,13 +50,9 @@ function SignUpScreen(props) {
   const [lname, onChangeLname] = React.useState("");
   const [phone, onChangePhone] = React.useState("");
   const [email, onChangeEmail] = React.useState("");
-  const [dataM, setDataM] = React.useState({
-    amortissement: 0,
-    amount: 0,
-    months: 0,
-  });
+
   const [isSelected, setSelection] = React.useState(false);
-  let cal;
+  
   async function signUp() {
     try {
       if (db) {
@@ -73,31 +69,16 @@ function SignUpScreen(props) {
             "client",
             JSON.stringify({ fname, lname, phone, email })
           );
-          (amount = 100000), (months = 15), (amortissement = 1022033.12);
-          const data = {
-            fname,
-            lname,
-            phone,
-            amount: dataM.amount,
-            months: dataM.months,
-            amortissement: dataM.amortissement,
-          };
-          // sendMail(email, data);
+         
 
-          props.navigation.navigate("Calcul", {
-            data: { fname, lname, phone, email },
-          });
+          props.navigation.navigate("Calcul");
         }
       }
     } catch (error) {
       console.log(error);
     }
   }
-  dataM && console.log(dataM.amount, dataM.months, dataM.amortissement);
-  useEffect(async () => {
-    cal = JSON.parse(await AsyncStorage.getItem("calcul"));
-    setDataM(cal);
-  }, []);
+  // dataM && console.log(dataM.amount, dataM.months, dataM.amortissement);
 
   return (
     <ScrollView style={styles.container}>

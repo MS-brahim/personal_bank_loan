@@ -10,7 +10,8 @@ import {
 import Slider from "@react-native-community/slider";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import ButtonShared from "../components/shared/ButtonShared";
-// import { sendMail } from "../components/shared/SendMail";
+import TextBoldShared from "../components/shared/TextBoldShared";
+
 export default class CreditCalcul extends React.Component {
   min = 4000;
   max = 500000;
@@ -46,6 +47,7 @@ export default class CreditCalcul extends React.Component {
       this.state.amount,
       this.state.months
     );
+
     await AsyncStorage.setItem(
       "calcul",
       JSON.stringify({
@@ -54,7 +56,8 @@ export default class CreditCalcul extends React.Component {
         months: this.state.months,
       })
     );
-    this.props.navigation.navigate("SignUpScreen");
+
+    this.props.navigation.navigate("CheckInfoScreen");
   };
 
   render() {
@@ -112,15 +115,7 @@ export default class CreditCalcul extends React.Component {
           >
             Détail de la simulation
           </Text>
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 30,
-              color: "#ed3b45",
-            }}
-          >
-            Crédit personnel
-          </Text>
+          <TextBoldShared text="Crédit personnel" />
 
           <View style={styles.row}>
             <View style={styles.col1}>
