@@ -20,9 +20,12 @@ const styles = StyleSheet.create({
       alignItems: "center",
       backgroundColor: "#ed3b45",
       padding: 10,
-      marginTop: 45,
+      marginTop: 25,
+      marginBottom:20,
       borderRadius: 30,
       width:200,
-      marginLeft:20      
+      marginLeft:20,
+      textAlign: 'center',
+      alignItems: 'center',   
     }
 });

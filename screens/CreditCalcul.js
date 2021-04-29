@@ -8,6 +8,7 @@ import { StyleSheet,
   } from "react-native";
 import Slider from "@react-native-community/slider";
 import ButtonShared from "../components/shared/ButtonShared";
+import TextBoldShared from "../components/shared/TextBoldShared";
 
 export default class CreditCalcul extends React.Component {
   min = 4000;
@@ -80,13 +81,7 @@ export default class CreditCalcul extends React.Component {
           <Text style={{
             marginTop:30,
           }}>Détail de la simulation</Text>
-          <Text style={{
-            fontWeight:'bold',
-            fontSize:30,
-            color:'#ed3b45',
-          }}>Crédit personnel</Text>
-          
-          
+          <TextBoldShared text='Crédit personnel'/>
           
           <View style={styles.row}>
             <View style={styles.col1}>
@@ -136,7 +131,7 @@ export default class CreditCalcul extends React.Component {
           <Text style={{width:'15%'}}>Imp</Text>
         </View>
         <ButtonShared text='DEMANDER CE PRET'
-          onPress={() =>this.props.navigation.navigate('SignUpScreen')}
+          onPress={() =>this.props.navigation.navigate('CheckInfoScreen')}
         />
       </ScrollView>
     );
