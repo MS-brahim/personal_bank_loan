@@ -12,6 +12,20 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="Calcul"
+          component={CreditCalcul}
+          options={{
+            title: "Crédit personnel",
+            headerTintColor: "#ed3b45",
+            headerStyle: {
+              backgroundColor: "white",
+            },
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        />
+        <Stack.Screen
           name="SignUpScreen"
           component={SignUpScreen}
           options={{
@@ -20,16 +34,8 @@ function App() {
             headerStyle: {
               backgroundColor: "white",
             },
-          }}
-        />
-        <Stack.Screen
-          name="Calcul"
-          component={CreditCalcul}
-          options={{
-            title: "CalCul",
-            headerTintColor: "white",
-            headerStyle: {
-              backgroundColor: "skyblue",
+            headerTitleStyle: {
+              fontWeight: 'bold',
             },
           }}
         />

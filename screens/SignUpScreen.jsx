@@ -9,9 +9,9 @@ import {
   Alert,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { sendMail } from "../components/shared/SendMail";
 import ButtonShared from "../components/shared/ButtonShared";
 import firebase from "../firebase";
+import { useEffect } from "react";
 const db = firebase.firestore();
 
 const styles = StyleSheet.create({
@@ -50,8 +50,13 @@ function SignUpScreen(props) {
   const [lname, onChangeLname] = React.useState("");
   const [phone, onChangePhone] = React.useState("");
   const [email, onChangeEmail] = React.useState("");
+  const [dataM, setDataM] = React.useState({
+    amortissement: 0,
+    amount: 0,
+    months: 0,
+  });
   const [isSelected, setSelection] = React.useState(false);
-
+  let cal;
   async function signUp() {
     try {
       if (db) {
@@ -73,11 +78,11 @@ function SignUpScreen(props) {
             fname,
             lname,
             phone,
-            amount,
-            months,
-            amortissement,
+            amount: dataM.amount,
+            months: dataM.months,
+            amortissement: dataM.amortissement,
           };
-          sendMail(email, data);
+          // sendMail(email, data);
 
           props.navigation.navigate("Calcul", {
             data: { fname, lname, phone, email },
@@ -88,6 +93,11 @@ function SignUpScreen(props) {
       console.log(error);
     }
   }
+  dataM && console.log(dataM.amount, dataM.months, dataM.amortissement);
+  useEffect(async () => {
+    cal = JSON.parse(await AsyncStorage.getItem("calcul"));
+    setDataM(cal);
+  }, []);
 
   return (
     <ScrollView style={styles.container}>
